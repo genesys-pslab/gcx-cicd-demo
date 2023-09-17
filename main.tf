@@ -22,21 +22,21 @@ resource "genesyscloud_routing_queue" "cicd_queue" {
 }
 
 resource "genesyscloud_routing_wrapupcode" "cicd_wuc_happy" {
-    name = "Happy CI/CD Customer"
+    name = "Happy CI/CD Customer (${var.gcxSuffix})"
 }
 
 resource "genesyscloud_routing_wrapupcode" "cicd_wuc_unhappy" {
-    name = "Unhappy CI/CD Customer"
+    name = "Unhappy CI/CD Customer (${var.gcxSuffix})"
 }
 
 resource "genesyscloud_routing_skill" "cicd_skill_mobile" {
-  name = "${var.gcxSkillName}_main"
+  name = "${var.gcxSkillName}_main_${var.gcxSuffix}"
 }
 
 resource "genesyscloud_routing_skill" "cicd_skill_north" {
-  name = "${var.gcxSkillName}_north"
+  name = "${var.gcxSkillName}_north_${var.gcxSuffix}"
 }
 
 resource "genesyscloud_routing_skill" "cicd_skill_south" {
-  name = "${var.gcxSkillName}_south"
+  name = "${var.gcxSkillName}_south_${var.gcxSuffix}"
 }
